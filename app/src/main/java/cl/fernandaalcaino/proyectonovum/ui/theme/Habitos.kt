@@ -155,7 +155,6 @@ fun HabitoCard(
             modifier = Modifier.padding(16.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            // Icono del hábito
             Box(modifier = Modifier.size(60.dp), contentAlignment = Alignment.Center) {
                 Icon(
                     painter = painterResource(id = obtenerIconoDrawable(habito.icono)),
@@ -166,7 +165,6 @@ fun HabitoCard(
             }
             Spacer(modifier = Modifier.width(16.dp))
 
-            // Información del hábito
             Column(modifier = Modifier.weight(1f)) {
                 Text(habito.nombre, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
                 Text(habito.tipo, style = MaterialTheme.typography.bodySmall, color = Color.Gray)
@@ -190,12 +188,10 @@ fun HabitoCard(
 
             Spacer(modifier = Modifier.width(8.dp))
 
-            // Botones de acción
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
-                // Botón para sumar progreso
                 FilledIconButton(
                     onClick = onSumar,
                     modifier = Modifier.size(40.dp),
@@ -210,7 +206,6 @@ fun HabitoCard(
                     )
                 }
 
-                // Botón para eliminar
                 IconButton(
                     onClick = { mostrarDialogo = true },
                     modifier = Modifier.size(40.dp),

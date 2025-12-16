@@ -213,7 +213,6 @@ fun TarjetaHabitoHistorial(
                         }
                     }
 
-                    // Botón de eliminar en historial
                     IconButton(
                         onClick = { mostrarDialogo = true },
                         modifier = Modifier.size(36.dp)

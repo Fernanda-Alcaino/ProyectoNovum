@@ -16,5 +16,5 @@ data class Habito(
     val usuarioEmail: String = "",
 
     // NUEVO CAMPO:
-    val icono: String = "Estrella" // Valor por defecto
+    val icono: String = "Estrella"
 )

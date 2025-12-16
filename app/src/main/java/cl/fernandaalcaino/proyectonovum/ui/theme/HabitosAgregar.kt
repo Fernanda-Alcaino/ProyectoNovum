@@ -31,20 +31,16 @@ fun HabitosAgregar(
     viewModel: HabitoViewModel,
     emailUsuario: String
 ) {
-    // --- ESTADOS ---
     var nombre by remember { mutableStateOf("") }
     var meta by remember { mutableStateOf("") }
 
-    // Categorías SIN "Alimentación"
     val categorias = listOf("Salud", "Deporte", "Estudio", "Descanso", "Trabajo", "Hobby", "Otro")
     var categoriaSeleccionada by remember { mutableStateOf(categorias[0]) }
     var expandedCategoria by remember { mutableStateOf(false) }
 
-    // Iconos SIN "Comida"
     val listaIconos = listOf("Deporte", "Correr", "Estudio", "Dormir", "Meditar", "Coser", "Maquillaje")
     var iconoSeleccionado by remember { mutableStateOf("Meditar") }
 
-    // ESTRUCTURA ESTABLE
     Surface(
         modifier = Modifier.fillMaxSize(),
         color = MaterialTheme.colorScheme.background
@@ -71,7 +67,6 @@ fun HabitosAgregar(
 
             Divider()
 
-            // 2. INPUT NOMBRE
             OutlinedTextField(
                 value = nombre,
                 onValueChange = { nombre = it },
@@ -80,7 +75,6 @@ fun HabitosAgregar(
                 singleLine = true
             )
 
-            // 3. DROPDOWN (MENÚ DESPLEGABLE)
             Box(modifier = Modifier.fillMaxWidth()) {
                 OutlinedTextField(
                     value = categoriaSeleccionada,
@@ -122,7 +116,6 @@ fun HabitosAgregar(
                 }
             }
 
-            // 4. INPUT META
             OutlinedTextField(
                 value = meta,
                 onValueChange = { if (it.all { char -> char.isDigit() }) meta = it },
@@ -132,7 +125,6 @@ fun HabitosAgregar(
                 singleLine = true
             )
 
-            // 5. CARRUSEL DE IMÁGENES
             Text("Selecciona un icono:", style = MaterialTheme.typography.titleMedium)
 
             Row(
@@ -171,7 +163,6 @@ fun HabitosAgregar(
 
             Spacer(modifier = Modifier.weight(1f))
 
-            // 6. BOTÓN GUARDAR
             Button(
                 onClick = {
                     if (nombre.isNotEmpty() && meta.isNotEmpty()) {

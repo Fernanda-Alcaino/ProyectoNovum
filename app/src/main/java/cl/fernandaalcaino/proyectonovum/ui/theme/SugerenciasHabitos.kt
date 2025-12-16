@@ -21,11 +21,9 @@ fun SugerenciasHabitos(
     viewModel: HabitoViewModel,
     navController: NavController
 ) {
-    // Observamos solo la lista de la API
     val habitosApiState by viewModel.habitosApi.collectAsState()
     val isLoading by viewModel.isLoading.collectAsState()
 
-    // Nos aseguramos de cargar los datos al entrar aquí
     LaunchedEffect(Unit) {
         viewModel.cargarHabitosDesdeAPI()
     }
@@ -83,10 +81,8 @@ fun SugerenciasHabitos(
                                     Text(text = "Meta sugerida: ${habitoSugerido.metaDiaria.toInt()}", style = MaterialTheme.typography.bodySmall)
                                 }
 
-                                // Botón para AGREGAR a mis hábitos
                                 IconButton(
                                     onClick = {
-                                        // Copiamos el hábito pero reseteamos el ID a 0 para que se cree como nuevo
                                         viewModel.agregarHabito(habitoSugerido.copy(id = 0, progresoHoy = 0.0))
                                         navController.popBackStack() // Volvemos a la lista principal al agregar
                                     },

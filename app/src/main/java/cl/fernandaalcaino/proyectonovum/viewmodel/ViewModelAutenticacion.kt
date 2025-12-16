@@ -117,17 +117,14 @@ class ViewModelAutenticacion(private val repository: UsuarioRepository) : ViewMo
 
         val emailLower = email.lowercase()
 
-        // Verifica formato básico de email
         if (!emailLower.contains("@")) {
             return "Formato de email inválido (falta '@')"
         }
 
-        // Verifica que termine con @gmail.com
         if (!emailLower.endsWith("@gmail.com")) {
             return "Solo se permiten emails de Gmail (@gmail.com)"
         }
 
-        // Verifica que haya algo antes del @
         val usuario = email.substringBefore("@")
         if (usuario.isBlank()) {
             return "El nombre de usuario no puede estar vacío"

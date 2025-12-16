@@ -18,7 +18,6 @@ import androidx.compose.ui.unit.sp
 
 @Composable
 fun PantallaInicio(onComenzarClick: () -> Unit) {
-    // Fondo con un degradado suave (opcional, o usa solo color blanco)
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -32,7 +31,6 @@ fun PantallaInicio(onComenzarClick: () -> Unit) {
             verticalArrangement = Arrangement.Center
         ) {
 
-            // 1. ÍCONO PRINCIPAL O LOGO
             Box(
                 modifier = Modifier
                     .size(120.dp)
@@ -49,7 +47,6 @@ fun PantallaInicio(onComenzarClick: () -> Unit) {
 
             Spacer(modifier = Modifier.height(32.dp))
 
-            // 2. TÍTULO
             Text(
                 text = "Bienvenido a Novum",
                 style = MaterialTheme.typography.headlineLarge,
@@ -59,7 +56,6 @@ fun PantallaInicio(onComenzarClick: () -> Unit) {
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            // 3. DESCRIPCIÓN
             Text(
                 text = "La herramienta definitiva para organizar tu vida. \n\n" +
                         "Crea hábitos saludables, monitorea tu progreso diario y alcanza tus metas paso a paso.",
@@ -70,7 +66,6 @@ fun PantallaInicio(onComenzarClick: () -> Unit) {
 
             Spacer(modifier = Modifier.height(48.dp))
 
-            // 4. BOTÓN "COMENZAR"
             Button(
                 onClick = onComenzarClick,
                 modifier = Modifier

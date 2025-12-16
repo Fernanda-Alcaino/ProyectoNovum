@@ -17,32 +17,29 @@ class HabitoViewModel(
     private val postRepository: PostRepository
 ) : ViewModel() {
 
-    // --- ESTADOS DE FORMULARIO (Vinculados a la UI de Agregar) ---
     val nombre = mutableStateOf("")
     val tipo = mutableStateOf("agua")
     val metaDiaria = mutableStateOf("")
 
-    // --- ESTADOS DE LISTAS (Observables) ---
 
-    // Lista local (Base de datos)
     private val _habitos = MutableStateFlow<List<Habito>>(emptyList())
     val habitos: StateFlow<List<Habito>> = _habitos.asStateFlow()
 
-    // Lista API (Sugerencias)
+
     private val _habitosApi = MutableStateFlow<List<Habito>>(emptyList())
     val habitosApi: StateFlow<List<Habito>> = _habitosApi.asStateFlow()
 
-    // Errores y Carga
+
     private val _apiError = MutableStateFlow<String?>(null)
     val apiError: StateFlow<String?> = _apiError.asStateFlow()
 
     private val _isLoading = MutableStateFlow(false)
     val isLoading: StateFlow<Boolean> = _isLoading.asStateFlow()
 
-    // Variable para saber quién está logueado
+
     private var usuarioActualEmail: String = ""
 
-    // --- FUNCIONES ---
+
 
     fun setUsuarioActual(email: String) {
         usuarioActualEmail = email
@@ -139,7 +136,7 @@ class HabitoViewModel(
         }
     }
 
-    // FUNCIÓN PARA ELIMINAR UN HÁBITO
+
     fun eliminarHabito(habito: Habito) {
         viewModelScope.launch {
             try {

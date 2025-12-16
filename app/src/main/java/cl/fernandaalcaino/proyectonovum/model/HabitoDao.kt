@@ -8,7 +8,7 @@ import androidx.room.Update
 
 @Dao
 interface HabitoDao {
-    // CAMBIAR: Filtrar hábitos por usuario
+
     @Query("SELECT * FROM habitos WHERE usuarioEmail = :usuarioEmail")
     suspend fun getByUsuario(usuarioEmail: String): List<Habito>
 
